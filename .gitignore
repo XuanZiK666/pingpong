@@ -27,3 +27,6 @@ MANIFEST
 /.deps/
 
 outputs/
+
+# IDE
+.vscode/

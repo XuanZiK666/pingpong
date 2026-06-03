@@ -1,0 +1,42 @@
+# VLASH Inference: x1 pingpong (RGB + Depth)
+# Run with: python run_inference.py --config_path=inference_pingpong.yaml
+
+# Robot configuration
+robot:
+  type: x1_robot
+  id: x1_pingpong
+  pingpong_mode: true
+  enable_kalman_filter: false
+  enable_head_camera: true
+  head_rgb_topic: /head/camera/rgb
+  head_depth_topic: /head/camera/depth/image_raw
+  head_camera_width: 640
+  head_camera_height: 480
+  head_camera_depth_width: 320
+  head_camera_depth_height: 240
+  head_depth_max_mm: 3000
+
+# Policy configuration
+policy:
+  path: /mnt/workspace/outputs/train/x1_pingpong_lora/checkpoints/last/pretrained_model
+  n_action_steps: 50
+  compile_model: true
+  device: cuda
+  dtype: bfloat16
+  fuse_qkv: true
+  fuse_gate_up: true
+
+# Task description (must match training tasks.parquet)
+single_task: "x1 hit pingpong ball"
+
+# Control parameters
+fps: 30
+control_time_s: 600
+
+# Async inference: 38ms latency / 33ms per step = ~2 steps, plus margin
+inference_overlap_steps: 3
+action_quant_ratio: 1
+
+# Visualization
+display_data: false
+play_sounds: true
