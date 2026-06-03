@@ -1,0 +1,19 @@
+.gitignore
+  s_34051be6ed12e3::t_e2a32417531b4c 29-32
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.2",
+  "base_commit_sha": "c05e694f3752ecad8771ca0a6dd251d1ae477417",
+  "prompts": {},
+  "sessions": {
+    "s_34051be6ed12e3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "23ed49b7-a1f9-4180-8c34-1784ae167132",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "xuanzi <20223801046@m.scnu.edu.cn>"
+    }
+  }
+}
